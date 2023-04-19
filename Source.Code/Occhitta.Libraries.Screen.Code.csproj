@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- 対応バージョン -->
+    <TargetFramework>net6.0</TargetFramework>
+    <VersionPrefix>1.0.0</VersionPrefix>
+
+    <!-- NuGet固有設定 -->
+    <PackageId>Otchitta.Libraries.Screen</PackageId>
+    <Title>Otchitta Screen Library</Title>
+    <Description>画面ライブラリ</Description>
+    <PackageProjectUrl>https://github.com/occhitta/csharp-library-screen</PackageProjectUrl>
+    <Authors>Otchitta</Authors>
+    <Copyright>None.</Copyright>
+
+    <!-- XMLドキュメント生成 -->
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+
+    <!-- コンパイルオプション -->
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <!-- プロジェクト参照設定 -->
+  <!-- プロジェクト拡張設定 -->
+</Project>
