@@ -5,7 +5,7 @@ namespace Occhitta.Libraries.Screen.Menu;
 /// <summary>
 /// <see cref="Delegate" />利用画面操作クラスです。
 /// </summary>
-public sealed class DelegateScreenMenu : AbstractScreenMenu {
+public sealed class DelegateScreenHook : AbstractScreenHook {
 	/// <summary>
 	/// 可否判定
 	/// </summary>
@@ -19,7 +19,7 @@ public sealed class DelegateScreenMenu : AbstractScreenMenu {
 	/// <see cref="Delegate" />利用画面操作を生成します。
 	/// </summary>
 	/// <param name="action">実行処理</param>
-	public DelegateScreenMenu(Action action) {
+	public DelegateScreenHook(Action action) {
 		this.accept = parameter => true;
 		this.action = parameter => action();
 	}
@@ -28,7 +28,7 @@ public sealed class DelegateScreenMenu : AbstractScreenMenu {
 	/// </summary>
 	/// <param name="action">実行処理</param>
 	/// <param name="accept">可否判定</param>
-	public DelegateScreenMenu(Action action, Func<bool> accept) {
+	public DelegateScreenHook(Action action, Func<bool> accept) {
 		this.accept = parameter => accept();
 		this.action = parameter => action();
 	}
@@ -36,7 +36,7 @@ public sealed class DelegateScreenMenu : AbstractScreenMenu {
 	/// <see cref="Delegate" />利用画面操作を生成します。
 	/// </summary>
 	/// <param name="action">実行処理</param>
-	public DelegateScreenMenu(Action<object?> action) {
+	public DelegateScreenHook(Action<object?> action) {
 		this.accept = parameter => true;
 		this.action = action;
 	}
@@ -45,7 +45,7 @@ public sealed class DelegateScreenMenu : AbstractScreenMenu {
 	/// </summary>
 	/// <param name="action">実行処理</param>
 	/// <param name="accept">可否判定</param>
-	public DelegateScreenMenu(Action<object?> action, Predicate<object?> accept) {
+	public DelegateScreenHook(Action<object?> action, Predicate<object?> accept) {
 		this.accept = accept;
 		this.action = action;
 	}

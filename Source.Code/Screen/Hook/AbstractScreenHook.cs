@@ -6,7 +6,7 @@ namespace Occhitta.Libraries.Screen.Menu;
 /// <summary>
 /// 基底画面操作クラスです。
 /// </summary>
-public abstract class AbstractScreenMenu : ICommand {
+public abstract class AbstractScreenHook : ICommand {
 	/// <summary>
 	/// 変更管理
 	/// </summary>
