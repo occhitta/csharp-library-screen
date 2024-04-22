@@ -1,0 +1,42 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:m="clr-namespace:Occhitta.Examples.Screen"
+        x:Class="Occhitta.Examples.Screen.MainWindowView"
+        x:ClassModifier="internal"
+        Title="画面ライブラリ(デモ)"
+        Width="800"
+        Height="600">
+  <Window.DataContext>
+    <m:MainWindowData />
+  </Window.DataContext>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="100*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Menu KeyboardNavigation.TabNavigation="None"
+          KeyboardNavigation.ControlTabNavigation="None"
+          KeyboardNavigation.DirectionalNavigation="None"
+          Grid.Row="0">
+      <MenuItem Header="ファイル(_F)">
+        <MenuItem Header="終了(_X)" />
+      </MenuItem>
+    </Menu>
+    <ComboBox ItemsSource="{Binding Path=SelectList}"
+              SelectedValue="{Binding Path=SelectData}"
+              SelectedValuePath="Item2"
+              DisplayMemberPath="Item1"
+              Grid.Row="1" />
+    <ContentControl Content="{Binding Path=SelectData}"
+                    Focusable="False"
+                    Grid.Row="2" />
+    <StatusBar Grid.Row="3">
+      <TextBlock Text="{Binding Path=StatusTime, StringFormat={}{0:yyyy\-MM\-dd HH\:mm\:ss\.fff}}"
+                 Width="130" />
+      <Separator />
+      <TextBlock Text="{Binding Path=StatusText}" />
+    </StatusBar>
+  </Grid>
+</Window>

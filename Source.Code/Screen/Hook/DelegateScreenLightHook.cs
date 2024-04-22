@@ -1,11 +1,11 @@
 using System;
 
-namespace Occhitta.Libraries.Screen.Menu;
+namespace Occhitta.Libraries.Screen.Hook;
 
 /// <summary>
 /// <see cref="Delegate" />利用画面操作クラスです。
 /// </summary>
-public sealed class DelegateScreenHook : AbstractScreenHook {
+public sealed class DelegateScreenLightHook : AbstractScreenLightHook {
 	/// <summary>
 	/// 可否判定
 	/// </summary>
@@ -19,35 +19,55 @@ public sealed class DelegateScreenHook : AbstractScreenHook {
 	/// <see cref="Delegate" />利用画面操作を生成します。
 	/// </summary>
 	/// <param name="action">実行処理</param>
-	public DelegateScreenHook(Action action) {
-		this.accept = parameter => true;
-		this.action = parameter => action();
+	public DelegateScreenLightHook(Action action) {
+		if (action == null) {
+			throw new ArgumentNullException(nameof(action));
+		} else {
+			this.accept = parameter => true;
+			this.action = parameter => action();
+		}
 	}
 	/// <summary>
 	/// <see cref="Delegate" />利用画面操作を生成します。
 	/// </summary>
 	/// <param name="action">実行処理</param>
 	/// <param name="accept">可否判定</param>
-	public DelegateScreenHook(Action action, Func<bool> accept) {
-		this.accept = parameter => accept();
-		this.action = parameter => action();
+	public DelegateScreenLightHook(Action action, Func<bool> accept) {
+		if (action == null) {
+			throw new ArgumentNullException(nameof(action));
+		} else if (accept == null) {
+			throw new ArgumentNullException(nameof(accept));
+		} else {
+			this.accept = parameter => accept();
+			this.action = parameter => action();
+		}
 	}
 	/// <summary>
 	/// <see cref="Delegate" />利用画面操作を生成します。
 	/// </summary>
 	/// <param name="action">実行処理</param>
-	public DelegateScreenHook(Action<object?> action) {
-		this.accept = parameter => true;
-		this.action = action;
+	public DelegateScreenLightHook(Action<object?> action) {
+		if (action == null) {
+			throw new ArgumentNullException(nameof(action));
+		} else {
+			this.accept = parameter => true;
+			this.action = action;
+		}
 	}
 	/// <summary>
 	/// <see cref="Delegate" />利用画面操作を生成します。
 	/// </summary>
 	/// <param name="action">実行処理</param>
 	/// <param name="accept">可否判定</param>
-	public DelegateScreenHook(Action<object?> action, Predicate<object?> accept) {
-		this.accept = accept;
-		this.action = action;
+	public DelegateScreenLightHook(Action<object?> action, Predicate<object?> accept) {
+		if (action == null) {
+			throw new ArgumentNullException(nameof(action));
+		} else if (accept == null) {
+			throw new ArgumentNullException(nameof(accept));
+		} else {
+			this.accept = accept;
+			this.action = action;
+		}
 	}
 
 	/// <summary>

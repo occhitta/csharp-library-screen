@@ -51,7 +51,18 @@ public abstract class AbstractScreenData : INotifyPropertyChanged {
 	/// <param name="memberName">要素名称</param>
 	/// <param name="updateHook">更新処理</param>
 	/// <typeparam name="TValue">要素種別</typeparam>
-	protected virtual void Update<TValue>(ref TValue sourceData, TValue updateData, string memberName, System.Action updateHook) {
-		if (Update(ref sourceData, updateData, memberName)) updateHook();
+	protected virtual void Update<TValue>(ref TValue sourceData, TValue updateData, string memberName, System.Action? updateHook) {
+		if (Update(ref sourceData, updateData, memberName)) updateHook?.Invoke();
+	}
+	/// <summary>
+	/// 要素情報を更新します。
+	/// </summary>
+	/// <param name="sourceData">要素情報</param>
+	/// <param name="updateData">更新情報</param>
+	/// <param name="memberName">要素名称</param>
+	/// <param name="updateHook">更新処理</param>
+	/// <typeparam name="TValue">要素種別</typeparam>
+	protected virtual void Update<TValue>(ref TValue sourceData, TValue updateData, string memberName, System.Action<TValue, TValue>? updateHook) {
+		if (Update(ref sourceData, updateData, memberName)) updateHook?.Invoke(sourceData, updateData);
 	}
 }

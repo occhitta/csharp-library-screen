@@ -1,15 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <!-- プロジェクト基本設定 -->
   <PropertyGroup>
+    <!-- アセンブリ名 -->
+    <AssemblyName>Occhitta.Libraries.Screen</AssemblyName>
+
     <!-- 対応バージョン -->
     <TargetFramework>net8.0</TargetFramework>
     <VersionPrefix>1.0.0</VersionPrefix>
 
     <!-- NuGet固有設定 -->
-    <PackageId>Otchitta.Libraries.Screen</PackageId>
-    <Title>Otchitta Screen Library</Title>
+    <PackageId>Occhitta.Libraries.Screen</PackageId>
+    <Title>Occhitta Screen Library</Title>
     <Description>画面ライブラリ</Description>
     <PackageProjectUrl>https://github.com/occhitta/csharp-library-screen</PackageProjectUrl>
-    <Authors>Otchitta</Authors>
+    <Authors>Occhitta</Authors>
     <Copyright>None.</Copyright>
 
     <!-- XMLドキュメント生成 -->

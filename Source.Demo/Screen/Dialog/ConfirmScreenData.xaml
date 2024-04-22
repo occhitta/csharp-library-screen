@@ -1,0 +1,51 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:m="clr-namespace:Occhitta.Examples.Screen.Dialog">
+  <DataTemplate DataType="{x:Type m:ConfirmScreenData}">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="100*" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="100*" />
+      </Grid.ColumnDefinitions>
+      <TextBlock Text="表題内容："
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Center"
+                 Grid.Row="0" Grid.Column="0" />
+      <TextBox Text="{Binding Path=HeaderText}"
+               AcceptsReturn="True"
+               Grid.Row="0" Grid.Column="1" />
+      <TextBlock Text="詳細内容："
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Center"
+                 Grid.Row="1" Grid.Column="0" />
+      <TextBox Text="{Binding Path=DetailData}"
+               AcceptsReturn="True"
+               Grid.Row="1" Grid.Column="1" />
+      <ContentControl Content="{Binding Path=DialogData}"
+                      Focusable="False"
+                      Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+      <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="010*" />
+          <ColumnDefinition Width="035*" MaxWidth="100" />
+          <ColumnDefinition Width="010*" MaxWidth="010" />
+          <ColumnDefinition Width="035*" MaxWidth="100" />
+          <ColumnDefinition Width="010*" />
+        </Grid.ColumnDefinitions>
+        <Button Content="実行"
+                Command="{Binding Path=InvokeMenu}"
+                MaxWidth="100"
+                Grid.Column="1" />
+        <Button Content="取消"
+                Command="{Binding Path=CancelMenu}"
+                MaxWidth="100"
+                Grid.Column="3" />
+      </Grid>
+    </Grid>
+  </DataTemplate>
+</ResourceDictionary>

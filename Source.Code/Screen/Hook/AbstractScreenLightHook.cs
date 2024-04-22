@@ -1,12 +1,12 @@
 using System;
 using System.Windows.Input;
 
-namespace Occhitta.Libraries.Screen.Menu;
+namespace Occhitta.Libraries.Screen.Hook;
 
 /// <summary>
-/// 基底画面操作クラスです。
+/// 基底画面軽量操作クラスです。
 /// </summary>
-public abstract class AbstractScreenHook : ICommand {
+public abstract class AbstractScreenLightHook : ICommand {
 	/// <summary>
 	/// 変更管理
 	/// </summary>

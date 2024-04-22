@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!-- プロジェクト基本設定 -->
+  <PropertyGroup>
+    <!-- 対応バージョン -->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <!-- 実行形式 -->
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <!-- コンパイルオプション -->
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+  <!-- プロジェクト参照設定 -->
+  <ItemGroup>
+    <ProjectReference Include="..\Source.Code\Occhitta.Libraries.Screen.Code.csproj" />
+  </ItemGroup>
+  <!-- プロジェクト拡張設定 -->
+</Project>
