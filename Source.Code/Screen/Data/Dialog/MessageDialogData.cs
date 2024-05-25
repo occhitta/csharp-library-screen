@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.Contracts;
 using Occhitta.Libraries.Screen.Hook;
 
 namespace Occhitta.Libraries.Screen.Data.Dialog;
@@ -8,7 +9,8 @@ namespace Occhitta.Libraries.Screen.Data.Dialog;
 /// </summary>
 /// <param name="headerText">表題内容</param>
 /// <param name="detailData">詳細情報</param>
-public sealed class MessageDialogData(string headerText, object detailData) {
+/// <param name="acceptText">許可名称</param>
+public sealed class MessageDialogData(string headerText, object detailData, string acceptText = "は　い") {
 	#region メンバー変数定義
 	/// <summary>
 	/// 表題内容
@@ -18,6 +20,10 @@ public sealed class MessageDialogData(string headerText, object detailData) {
 	/// 詳細情報
 	/// </summary>
 	private readonly object detailData = detailData;
+	/// <summary>
+	/// 許可名称
+	/// </summary>
+	private readonly string acceptText = acceptText;
 	/// <summary>
 	/// 許可操作
 	/// </summary>
@@ -39,6 +45,11 @@ public sealed class MessageDialogData(string headerText, object detailData) {
 	/// </summary>
 	/// <value>詳細情報</value>
 	public object DetailData => this.detailData;
+	/// <summary>
+	/// 許可名称を取得します。
+	/// </summary>
+	/// <value>許可名称</value>
+	public string AcceptText => this.acceptText;
 	/// <summary>
 	/// 許可操作を取得します。
 	/// </summary>
