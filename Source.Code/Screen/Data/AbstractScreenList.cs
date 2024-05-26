@@ -69,6 +69,7 @@ public abstract class AbstractScreenList<TRecord> : AbstractScreenData, IReadOnl
 	/// <param name="offset">登録番号</param>
 	protected virtual void RegistData(TRecord source, int offset) {
 		this.sourceList.Insert(offset, source);
+		Notify(nameof(Count));
 		Notify(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, source, offset));
 	}
 	/// <summary>
